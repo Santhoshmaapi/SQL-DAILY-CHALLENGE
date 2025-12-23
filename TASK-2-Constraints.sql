@@ -1,0 +1,25 @@
+CREATE DATABASE Online_Bookstore;
+USE Online_Bookstore;
+
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY,
+    Title VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT,
+    BookID INT,
+    FOREIGN KEY (BookID) REFERENCES Books(BookID)
+);
+
+SELECT * FROM Books;
+
+SELECT * FROM Orders;
+
+ALTER TABLE Books
+ADD ISBN VARCHAR(20) UNIQUE;
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM Orders WHERE OrderID = 5;
+TRUNCATE TABLE Orders;
+
